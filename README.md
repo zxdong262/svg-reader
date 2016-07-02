@@ -6,7 +6,7 @@ sync read svg icons and parse to icons object
 
 ## get
 ```bash
-npm install vue-pagenav
+npm install svg-reader
 ```
 
 ## use
