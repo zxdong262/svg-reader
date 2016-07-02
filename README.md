@@ -14,7 +14,7 @@ npm install vue-pagenav
 ```javascript
 
 const read = require('svg-reader')
-var icons = read(__dirname + '/icons.dvg')
+var icons = read(__dirname + '/icons.svg')
 
 /*
 icons = 
