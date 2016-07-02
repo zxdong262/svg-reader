@@ -5,6 +5,7 @@ var expect = chai.expect
 var pkg = require('../package.json')
 var resolve = require('path').resolve
 var _ = require('lodash')
+var should = chai.should()
 
 describe(pkg.name, function() {
 
@@ -32,6 +33,21 @@ describe(pkg.name, function() {
 		})
 		it('svg should be a string', function() {
 			expect(obj.svg).to.be.a('string')
+		})
+	}
+
+
+})
+
+describe('no svg', function() {
+
+	var icons = reader(resolve('./test/fontello.svg'), { nosvg: true })
+	var arr = Object.keys(icons)
+	for(var i = 0, len = 1;i < len;i ++) {
+		var obj = icons[arr[i]]
+
+		it('svg should be a undefined', function() {
+			should.not.exist(obj.svg)
 		})
 	}
 

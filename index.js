@@ -2,8 +2,16 @@
 
 const cheerio = require('cheerio')
 
-module.exports = function(svgPath) {
+/*
+ * @param {string} svgPath
+ * @param {object} _options, default is { nosvg: false }
+ */
 
+module.exports = function(svgPath, _options) {
+
+	var options = Object.assign({
+		nosvg: false
+	}, _options)
 	var str = require('fs').readFileSync(svgPath, 'utf-8')
 	var $ = cheerio.load(str)
 	var fontFace = $('font-face')
@@ -27,13 +35,13 @@ module.exports = function(svgPath) {
 			,height: height
 			,path: path
 			,ascent: defaultAscent
+		}
 
-			//from https://github.com/eugene1g/font-blast/blob/develop/lib/font-blast/glyph-extractor.js
-			,svg: (
-
+		//from https://github.com/eugene1g/font-blast/blob/develop/lib/font-blast/glyph-extractor.js
+		if(!options.nosvg) obj.svg = (
 				`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"><g transform="scale(1,-1) translate(0 -${defaultAscent})"><path d="${path}"/></g></svg>`
 			)
-		}
+
 		icons[name] = obj
 	})
 

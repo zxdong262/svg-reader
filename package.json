@@ -1,7 +1,7 @@
 {
   "name": "svg-reader",
   "description": "sync read svg icons and parse to icons object",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "keywords": [
     "svg-reader",
     "svg"
