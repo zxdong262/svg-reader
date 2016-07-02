@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+		title test
+		style.
+			#app {
+				padding: 20px;
+				margin: 0 auto;
+				wudth: 600px
+			}
+			svg {
+				width: 50px;
+				height: 50px;
+			}
+	body
+		#app
+			ul
+				- _.each(icons, function(icon, key) {
+					li
+						h3 #{key}
+						p !{icon.svg}
+
+				- })
