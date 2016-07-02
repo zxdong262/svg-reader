@@ -12,7 +12,7 @@ describe(pkg.name, function() {
 	var arr = Object.keys(icons)
 
 	console.log(icons)
-	for(let i = 0, len = arr.length;i < len;i ++) {
+	for(var i = 0, len = arr.length;i < len;i ++) {
 		var obj = icons[arr[i]]
 
 		it('width should be a number', function() {
