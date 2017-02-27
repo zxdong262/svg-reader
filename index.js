@@ -15,9 +15,10 @@ module.exports = function(svgPath, _options) {
 	var str = require('fs').readFileSync(svgPath, 'utf-8')
 	var $ = cheerio.load(str)
 	var fontFace = $('font-face')
-	var defaultWidth = parseInt($('font').attr('horiz-adv-x'), 10)
-	var defaultHeight = parseInt(fontFace.attr('units-per-em'), 10)
-	var defaultAscent = parseInt(fontFace.attr('ascent'), 10)
+	var defaultWidth = parseInt($('font').attr('horiz-adv-x'), 10) || 0
+	var defaultHeight = parseInt(fontFace.attr('units-per-em'), 10) || 0
+	var defaultAscent = parseInt(fontFace.attr('ascent'), 10) || 0
+  var defaultDescent = parseInt(fontFace.attr('descent'), 10) || 0
 	var glyphs = $('glyph')
 	var icons = {}
 
@@ -35,6 +36,7 @@ module.exports = function(svgPath, _options) {
 			,height: height
 			,path: path
 			,ascent: defaultAscent
+      ,descent: defaultDescent
 		}
 
 		//from https://github.com/eugene1g/font-blast/blob/develop/lib/font-blast/glyph-extractor.js

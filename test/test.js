@@ -25,6 +25,9 @@ describe(pkg.name, function() {
 		it('ascent should be a number', function() {
 			expect(obj.ascent).to.be.a('number')
 		})
+		it('descent should be a number', function() {
+			expect(obj.descent).to.be.a('number')
+		})
 		it('path should be a string', function() {
 			expect(obj.path).to.be.a('string')
 		})
